@@ -13,13 +13,13 @@
 		CE9105492949BF3C008D3137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9105482949BF3C008D3137 /* Assets.xcassets */; };
 		CE91054C2949BF3C008D3137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE91054A2949BF3C008D3137 /* LaunchScreen.storyboard */; };
 		CE91055D2949C044008D3137 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105562949C044008D3137 /* Extension.swift */; };
-		CE91055E2949C044008D3137 /* ViewControllersAssembly+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105592949C044008D3137 /* ViewControllersAssembly+Account.swift */; };
+		CE91055E2949C044008D3137 /* ViewControllersAssembly+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105592949C044008D3137 /* ViewControllersAssembly+Main.swift */; };
 		CE91055F2949C044008D3137 /* ViewControllersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91055A2949C044008D3137 /* ViewControllersAssembly.swift */; };
 		CE9105BB294CA1E6008D3137 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105B5294CA1E5008D3137 /* Job.swift */; };
 		CE9105BC294CA1E6008D3137 /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9105B7294CA1E5008D3137 /* MainViewCell.xib */; };
 		CE9105BD294CA1E6008D3137 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105B8294CA1E5008D3137 /* MainViewCell.swift */; };
-		CE9105BE294CA1E6008D3137 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105B9294CA1E5008D3137 /* MainPresenter.swift */; };
-		CE9105BF294CA1E6008D3137 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105BA294CA1E6008D3137 /* MainViewController.swift */; };
+		CE9105BE294CA1E6008D3137 /* MainListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105B9294CA1E5008D3137 /* MainListPresenter.swift */; };
+		CE9105BF294CA1E6008D3137 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105BA294CA1E6008D3137 /* MainListViewController.swift */; };
 		CE9105C1294CA300008D3137 /* ProvidersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105C0294CA300008D3137 /* ProvidersUseCase.swift */; };
 		CE9105C6294CA325008D3137 /* GithubProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105C4294CA325008D3137 /* GithubProvider.swift */; };
 		CE9105C7294CA325008D3137 /* SearchGOVProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105C5294CA325008D3137 /* SearchGOVProvider.swift */; };
@@ -29,6 +29,12 @@
 		CE9105D2294CB440008D3137 /* JobSearchMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D1294CB440008D3137 /* JobSearchMock.swift */; };
 		CE9105D4294CB460008D3137 /* JobSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D3294CB45F008D3137 /* JobSearchPresenterTests.swift */; };
 		CE9105D6294CB59C008D3137 /* SuperAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D5294CB59C008D3137 /* SuperAppTests.swift */; };
+		CE9105D8294D00B2008D3137 /* MainListProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D7294D00B2008D3137 /* MainListProtocal.swift */; };
+		CE9105DA294D02B1008D3137 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D9294D02B1008D3137 /* Constant.swift */; };
+		CE9105DC294D07A9008D3137 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105DB294D07A9008D3137 /* NetworkAdapter.swift */; };
+		CE9105DF294D0B75008D3137 /* Positions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE9105DD294D0B75008D3137 /* Positions.plist */; };
+		CE9105E0294D0B75008D3137 /* Locations.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE9105DE294D0B75008D3137 /* Locations.plist */; };
+		CE9105E2294D1475008D3137 /* MainListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105E1294D1475008D3137 /* MainListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +56,14 @@
 		CE91054B2949BF3C008D3137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE91054D2949BF3C008D3137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9105562949C044008D3137 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		CE9105592949C044008D3137 /* ViewControllersAssembly+Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewControllersAssembly+Account.swift"; sourceTree = "<group>"; };
+		CE9105592949C044008D3137 /* ViewControllersAssembly+Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewControllersAssembly+Main.swift"; sourceTree = "<group>"; };
 		CE91055A2949C044008D3137 /* ViewControllersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllersAssembly.swift; sourceTree = "<group>"; };
 		CE9105A0294B112C008D3137 /* SuperAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9105B5294CA1E5008D3137 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		CE9105B7294CA1E5008D3137 /* MainViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewCell.xib; sourceTree = "<group>"; };
 		CE9105B8294CA1E5008D3137 /* MainViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
-		CE9105B9294CA1E5008D3137 /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		CE9105BA294CA1E6008D3137 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CE9105B9294CA1E5008D3137 /* MainListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListPresenter.swift; sourceTree = "<group>"; };
+		CE9105BA294CA1E6008D3137 /* MainListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
 		CE9105C0294CA300008D3137 /* ProvidersUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvidersUseCase.swift; sourceTree = "<group>"; };
 		CE9105C4294CA325008D3137 /* GithubProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubProvider.swift; sourceTree = "<group>"; };
 		CE9105C5294CA325008D3137 /* SearchGOVProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGOVProvider.swift; sourceTree = "<group>"; };
@@ -67,6 +73,12 @@
 		CE9105D1294CB440008D3137 /* JobSearchMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchMock.swift; sourceTree = "<group>"; };
 		CE9105D3294CB45F008D3137 /* JobSearchPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchPresenterTests.swift; sourceTree = "<group>"; };
 		CE9105D5294CB59C008D3137 /* SuperAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperAppTests.swift; sourceTree = "<group>"; };
+		CE9105D7294D00B2008D3137 /* MainListProtocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListProtocal.swift; sourceTree = "<group>"; };
+		CE9105D9294D02B1008D3137 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		CE9105DB294D07A9008D3137 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
+		CE9105DD294D0B75008D3137 /* Positions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Positions.plist; sourceTree = "<group>"; };
+		CE9105DE294D0B75008D3137 /* Locations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Locations.plist; sourceTree = "<group>"; };
+		CE9105E1294D1475008D3137 /* MainListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				CE91054A2949BF3C008D3137 /* LaunchScreen.storyboard */,
+				CE9105DE294D0B75008D3137 /* Locations.plist */,
+				CE9105DD294D0B75008D3137 /* Positions.plist */,
 				CE9105482949BF3C008D3137 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -133,6 +147,7 @@
 		CE9105542949C044008D3137 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CE9105DB294D07A9008D3137 /* NetworkAdapter.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -140,9 +155,10 @@
 		CE9105552949C044008D3137 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CE9105CA294CA8F3008D3137 /* Common Components */,
+				CE9105CA294CA8F3008D3137 /* Custom Components */,
 				CE9105C8294CA7C4008D3137 /* Protocols.swift */,
 				CE9105562949C044008D3137 /* Extension.swift */,
+				CE9105D9294D02B1008D3137 /* Constant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -159,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				CE91055A2949C044008D3137 /* ViewControllersAssembly.swift */,
-				CE9105592949C044008D3137 /* ViewControllersAssembly+Account.swift */,
+				CE9105592949C044008D3137 /* ViewControllersAssembly+Main.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -196,8 +212,10 @@
 			children = (
 				CE9105B4294CA1E5008D3137 /* Models */,
 				CE9105B6294CA1E5008D3137 /* Views */,
-				CE9105BA294CA1E6008D3137 /* MainViewController.swift */,
-				CE9105B9294CA1E5008D3137 /* MainPresenter.swift */,
+				CE9105BA294CA1E6008D3137 /* MainListViewController.swift */,
+				CE9105B9294CA1E5008D3137 /* MainListPresenter.swift */,
+				CE9105E1294D1475008D3137 /* MainListRouter.swift */,
+				CE9105D7294D00B2008D3137 /* MainListProtocal.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -292,13 +310,13 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		CE9105CA294CA8F3008D3137 /* Common Components */ = {
+		CE9105CA294CA8F3008D3137 /* Custom Components */ = {
 			isa = PBXGroup;
 			children = (
 				CE9105CB294CA91D008D3137 /* KeyboardAccessoryInputView.swift */,
 				CE9105CC294CA91D008D3137 /* KeyboardAccessoryInputView.xib */,
 			);
-			path = "Common Components";
+			path = "Custom Components";
 			sourceTree = "<group>";
 		};
 		CE9105CF294CB410008D3137 /* List */ = {
@@ -393,7 +411,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9105CE294CA91D008D3137 /* KeyboardAccessoryInputView.xib in Resources */,
+				CE9105DF294D0B75008D3137 /* Positions.plist in Resources */,
 				CE91054C2949BF3C008D3137 /* LaunchScreen.storyboard in Resources */,
+				CE9105E0294D0B75008D3137 /* Locations.plist in Resources */,
 				CE9105492949BF3C008D3137 /* Assets.xcassets in Resources */,
 				CE9105472949BF3B008D3137 /* Main.storyboard in Resources */,
 				CE9105BC294CA1E6008D3137 /* MainViewCell.xib in Resources */,
@@ -417,15 +437,19 @@
 				CE9105C6294CA325008D3137 /* GithubProvider.swift in Sources */,
 				CE9105C1294CA300008D3137 /* ProvidersUseCase.swift in Sources */,
 				CE9105402949BF3B008D3137 /* AppDelegate.swift in Sources */,
+				CE9105DA294D02B1008D3137 /* Constant.swift in Sources */,
 				CE9105C7294CA325008D3137 /* SearchGOVProvider.swift in Sources */,
+				CE9105D8294D00B2008D3137 /* MainListProtocal.swift in Sources */,
 				CE9105BB294CA1E6008D3137 /* Job.swift in Sources */,
-				CE9105BF294CA1E6008D3137 /* MainViewController.swift in Sources */,
+				CE9105BF294CA1E6008D3137 /* MainListViewController.swift in Sources */,
 				CE91055F2949C044008D3137 /* ViewControllersAssembly.swift in Sources */,
 				CE9105BD294CA1E6008D3137 /* MainViewCell.swift in Sources */,
-				CE9105BE294CA1E6008D3137 /* MainPresenter.swift in Sources */,
+				CE9105BE294CA1E6008D3137 /* MainListPresenter.swift in Sources */,
 				CE9105C9294CA7C4008D3137 /* Protocols.swift in Sources */,
+				CE9105DC294D07A9008D3137 /* NetworkAdapter.swift in Sources */,
 				CE9105422949BF3B008D3137 /* SceneDelegate.swift in Sources */,
-				CE91055E2949C044008D3137 /* ViewControllersAssembly+Account.swift in Sources */,
+				CE91055E2949C044008D3137 /* ViewControllersAssembly+Main.swift in Sources */,
+				CE9105E2294D1475008D3137 /* MainListRouter.swift in Sources */,
 				CE9105CD294CA91D008D3137 /* KeyboardAccessoryInputView.swift in Sources */,
 				CE91055D2949C044008D3137 /* Extension.swift in Sources */,
 			);

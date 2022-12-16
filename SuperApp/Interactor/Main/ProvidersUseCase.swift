@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum JobsProviders: String, CaseIterable {
+enum JobsProvider: String, CaseIterable {
     case github = "Github"
     case searchGOV = "Search.gov"
 }
@@ -16,7 +16,17 @@ typealias jobsCompletion = ([Job]?, Error?)->Void
 
 final class ProvidersUseCase {
     
-    func getJobs(from proviver: JobsProviders,
+        
+    // MARK: Public
+    var allLocations: [String] {
+        getListFromPlist(fileName: "Locations")
+    }
+    
+    var allPostions: [String] {
+        getListFromPlist(fileName: "Positions")
+    }
+
+    func getJobs(from proviver: JobsProvider,
                  position: String,
                  location: String,
                  completion: @escaping jobsCompletion) {
@@ -33,28 +43,35 @@ final class ProvidersUseCase {
         callJobProvider(proviver, link: providerLink, completion: completion)
     }
     
-    private func callJobProvider(_ proviver: JobsProviders, link: String, completion: @escaping jobsCompletion) {
-//
-//        Alamofire.request(link).validate().responseJSON { [weak self] response in
-//            guard let self = self else { return }
-//
-//            switch response.result {
-//            case .success:
-//                
-//                if let responseValue = response.result.value,
-//                    let responseData = try? JSONSerialization.data(withJSONObject: responseValue) {
-//                    self.mapJobProviderResult(proviver, data: responseData, completion: completion)
-//                } else {
-//                    fatalError("\(proviver.rawValue) returned success but without valid data")
-//                }
-//
-//            case .failure(let error):
-//                completion(nil, error)
-//            }
-//        }
+    // MARK: Private
+    private func getListFromPlist(fileName: String) -> [String] {
+
+        if let path = Bundle.main.path(forResource: fileName, ofType: ".plist"),
+            let locationsList = NSArray(contentsOfFile: path) as? [String] {
+            return locationsList
+        }
+        return []
+    }
+
+    private func callJobProvider(_ proviver: JobsProvider, link: String, completion: @escaping jobsCompletion) {
+
+        guard let url = URL(string: link) else {
+            return
+        }
+        
+        NetworkAdapter.request(url: url) { [weak self] date, error in
+            guard let self = self else { return }
+            if let date = date {
+                self.mapJobProviderResult(proviver, data: date, completion: completion)
+                
+            } else if let error = error {
+                completion(nil, error)
+            }
+        }
+       
     }
     
-    private func mapJobProviderResult(_ proviver: JobsProviders, data: Data, completion: @escaping jobsCompletion) {
+    private func mapJobProviderResult(_ proviver: JobsProvider, data: Data, completion: @escaping jobsCompletion) {
         
         switch proviver {
         case .github:

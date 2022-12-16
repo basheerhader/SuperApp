@@ -1,151 +1,116 @@
 //
-//  MainViewController.swift
+//  MainListViewController.swift
 //  SuperApp
 //
 //  Created by Basheer AlHader on 14/12/2022.
 //
 
 import UIKit
-import SafariServices
 
-final class MainViewController: UIViewController {
+final class MainListViewController: UIViewController {
 
     // MARK: - Outlets
-
     @IBOutlet private weak var providerTextField: UITextField!
     @IBOutlet private weak var positionTextField: UITextField!
     @IBOutlet private weak var locationTextField: UITextField!
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Parameters
-
-    var presenter: MainPresenter!
     private lazy var pickerView = UIPickerView()
-    private var selectedJobsProvider = JobsProviders.allCases.first
-    
-    // MARK: Lifecycle
+    var presenter: MainListDelegate!
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.register(MainViewCell.self)
         configurePickerView()
-        
-        presenter.getAvailableJobs()
     }
     
     // MARK: Private
-
     private func configurePickerView() {
-
-        providerTextField.text = JobsProviders.allCases.first?.rawValue
+        providerTextField.text = presenter.selectedProviderTitle
         providerTextField.inputView = pickerView
         pickerView.dataSource = self
         pickerView.delegate = self
         
         let keyboardAccessoryInputView: KeyboardAccessoryInputView = KeyboardAccessoryInputView.load()
-        keyboardAccessoryInputView.onClickOnDoneButton = { [weak self] in
-            guard let self = self, let selectedJobsProvider = self.selectedJobsProvider else { return }
-            self.providerTextField.resignFirstResponder()
-
-            self.presenter.updateProvider(selectedJobsProvider)
-            self.presenter.getAvailableJobs()
-        }
-        
+        keyboardAccessoryInputView.onClickOnDoneButton = updateProvider
         providerTextField.inputAccessoryView = keyboardAccessoryInputView
+    }
+    private func updateProvider() {
+        providerTextField.resignFirstResponder()
+        presenter.updateProvider()
     }
     
     // MARK: Actions
-
     @IBAction private func filterButtonTapped(_ sender: Any) {
-        
-        presenter.searchClear()
-        tableView.reloadData()
-        
         presenter.updateFilterValues(positionTextField.text, location: locationTextField.text)
-        presenter.getAvailableJobs()
     }
-    
     @IBAction private func textFieldDidChanged(_ sender: UITextField) {
-        
         if sender == positionTextField {
-            presenter.searchPosition(by: sender.text ?? "")
+            presenter.searchPosition(by: sender.text)
         } else {
-            presenter.searchlocation(by: sender.text ?? "")
+            presenter.searchlocation(by: sender.text)
         }
         tableView.reloadData()
     }
 }
 
 // MARK: Table View Methods
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.getNumberOfRowsInSection()
+        presenter.mainListCount
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if presenter.isSearchActive {
+        if presenter.searchActivated {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-            cell.textLabel?.text = presenter.searchList[indexPath.row]
+            cell.textLabel?.text = presenter.getSearchItem(at: indexPath.row)
             return cell
         } else {
             let cell: MainViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.configure(with: presenter.jobsList[indexPath.row])
+            cell.configure(with: presenter.getJobItem(at: indexPath.row))
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if presenter.isSearchActive {
-
-            if presenter.isPositionSearchActive {
-                positionTextField.text = presenter.searchList[indexPath.row]
+        if presenter.searchActivated {
+            let item = presenter.getSearchItem(at: indexPath.row)
+            if presenter.positionSearchActivated {
+                positionTextField.text = item
             } else {
-                locationTextField.text = presenter.searchList[indexPath.row]
+                locationTextField.text = item
             }
-            
             presenter.searchClear()
-            tableView.reloadData()
-            
-        } else if let jobLink = presenter.jobsList[indexPath.row].jobLink,
-            let url = URL(string: jobLink) {
-            
-            let safariController = SFSafariViewController(url: url)
-            safariController.modalPresentationStyle = .overCurrentContext
-            present(safariController, animated: true)
+        } else {
+            presenter.openSFSafari(at: indexPath.row)
         }
     }
 }
 
-// MARK: - JobSearch Representation
-
-extension MainViewController: MainRepresentation {
+extension MainListViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        presenter.jobProviderCount
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        presenter.getProviderItem(at: row)
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        providerTextField.text = presenter.getProviderItem(at: row)
+        presenter.updateSelectedProvider(at: row)
+    }
+}
+
+// MARK: - Main List Representation
+extension MainListViewController: MainListRepresentation {
     func updateList() {
         tableView.reloadData()
     }
 }
 
-extension MainViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        JobsProviders.allCases.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        JobsProviders.allCases[row].rawValue
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        providerTextField.text = JobsProviders.allCases[row].rawValue
-        selectedJobsProvider = JobsProviders.allCases[row]
-    }
-}
-
+extension MainListViewController: MainListRouter { }

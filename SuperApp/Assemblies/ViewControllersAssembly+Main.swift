@@ -10,8 +10,8 @@ import UIKit
 extension ViewControllersAssembly {
   
     static func makeMainViewController() -> UIViewController {
-        let viewController: MainViewController = main.makeViewController()
-        let presenter = MainPresenter(with: viewController, useCase: ProvidersUseCase())
+        let viewController: MainListViewController = main.makeViewController()
+        let presenter = MainListPresenter(with: viewController, useCase: ProvidersUseCase(), router: viewController)
         viewController.presenter = presenter
         return viewController.navigation
     }

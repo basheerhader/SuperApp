@@ -12,10 +12,10 @@ import XCTest
 class MainPresenterTests: XCTestCase {
 
     var view = MainMock()
-    var presenter: MainPresenter!
+    var presenter: MainListPresenter!
     
     override func setUp() {
-        presenter = MainPresenter(with: view, useCase: ProvidersUseCase())
+        presenter = MainListPresenter(with: view, useCase: ProvidersUseCase())
     }
 
 

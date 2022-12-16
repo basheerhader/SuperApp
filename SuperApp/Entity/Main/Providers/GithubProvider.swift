@@ -24,6 +24,4 @@ struct GithubProvider: Codable {
         case howToApply = "how_to_apply"
         case companyLogo = "company_logo"
     }
-    
 }
-

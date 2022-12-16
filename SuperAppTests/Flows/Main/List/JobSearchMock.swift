@@ -17,7 +17,7 @@ class MainMock {
     var displayAlertCalled = false
 }
 
-extension MainMock: MainRepresentation {
+extension MainMock: MainListRepresentation {
     
     func present(to viewCoreoller: UIViewController) {
         

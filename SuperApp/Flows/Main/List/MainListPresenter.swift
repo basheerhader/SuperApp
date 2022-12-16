@@ -18,14 +18,12 @@ final class MainListPresenter {
     private var location: String?
     private var selectedProvider: JobsProvider!
     private weak var view: MainListRepresentation!
-    private weak var router: MainListRouter!
     private var useCase: ProvidersUseCase!
 
     // MARK: - Init / Deinit
-    init(with view: MainListRepresentation, useCase: ProvidersUseCase, router: MainListRouter) {
+    init(with view: MainListRepresentation, useCase: ProvidersUseCase) {
         self.view = view
         self.useCase = useCase
-        self.router = router
 
         setup()
     }
@@ -129,7 +127,7 @@ extension MainListPresenter: MainListDelegate {
     
     func openSFSafari(at row: Int) {
         if let url = getJobLink(at: row) {
-            router.openSFSafari(with: url)
+            view.openSFSafari(with: url)
         }
     }
 }

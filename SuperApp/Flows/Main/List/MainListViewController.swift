@@ -112,5 +112,3 @@ extension MainListViewController: MainListRepresentation {
         tableView.reloadData()
     }
 }
-
-extension MainListViewController: MainListRouter { }

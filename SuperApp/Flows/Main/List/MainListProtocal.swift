@@ -6,19 +6,19 @@
 //
 
 import Foundation
+import UIKit
+import SafariServices
 
-protocol MainListRepresentation: ViewDisplayable {
+protocol MainListRepresentation: ViewDisplayable, MainListRouter {
     func updateList()
 }
 
 protocol MainListDelegate: AnyObject {
-    
     var searchActivated: Bool { get }
     var positionSearchActivated: Bool { get }
     var mainListCount: Int { get }
     var jobProviderCount: Int { get }
     var selectedProviderTitle: String { get }
-
     func getProviderItem(at row: Int) -> String
     func getJobItem(at row: Int) -> Job
     func getSearchItem(at row: Int) -> String
@@ -31,4 +31,17 @@ protocol MainListDelegate: AnyObject {
     func searchClear()
     func updateSelectedProvider(at row: Int)
     func openSFSafari(at row: Int)
+}
+
+protocol MainListRouter: AnyObject {
+    func openSFSafari(with link: URL)
+}
+
+extension MainListRouter where Self: UIViewController {
+
+    func openSFSafari(with link: URL) {
+        let safariController = SFSafariViewController(url: link)
+        safariController.modalPresentationStyle = .overCurrentContext
+        present(safariController, animated: true)
+    }
 }

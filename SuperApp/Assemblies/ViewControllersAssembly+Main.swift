@@ -11,7 +11,7 @@ extension ViewControllersAssembly {
   
     static func makeMainViewController() -> UIViewController {
         let viewController: MainListViewController = main.makeViewController()
-        let presenter = MainListPresenter(with: viewController, useCase: ProvidersUseCase(), router: viewController)
+        let presenter = MainListPresenter(with: viewController, useCase: ProvidersUseCase())
         viewController.presenter = presenter
         return viewController.navigation
     }

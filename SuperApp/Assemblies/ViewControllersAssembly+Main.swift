@@ -6,13 +6,24 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension ViewControllersAssembly {
   
     static func makeMainViewController() -> UIViewController {
+//        return makeMainViewControllerSwiftUI()
         let viewController: MainListViewController = main.makeViewController()
         let presenter = MainListPresenter(with: viewController, useCase: ProvidersUseCase())
         viewController.presenter = presenter
         return viewController.navigation
     }
+    
+    
+//    static func makeMainViewControllerSwiftUI() -> UIViewController {
+//
+//        var mainListSwiftUIView = MainListSwiftUIView()
+//        let presenter = MainListPresenter(with: mainListSwiftUIView, useCase: ProvidersUseCase())
+//        mainListSwiftUIView.presenter = presenter
+//        return UIHostingController(rootView: mainListSwiftUIView)
+//    }
 }

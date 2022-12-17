@@ -15,12 +15,18 @@ class MainMock {
     var showLoadingCalled = false
     var hideLoadingCalled = false
     var displayAlertCalled = false
+    var presentCalled = false
+    var openSFSafaritCalled = false
 }
 
 extension MainMock: MainListRepresentation {
     
+    func openSFSafari(with link: URL) {
+        openSFSafaritCalled = true
+    }
+    
     func present(to viewCoreoller: UIViewController) {
-        
+        presentCalled = true
     }
     
     func updateList() {

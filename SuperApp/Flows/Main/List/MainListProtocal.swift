@@ -45,3 +45,4 @@ extension MainListRouter where Self: UIViewController {
         present(safariController, animated: true)
     }
 }
+

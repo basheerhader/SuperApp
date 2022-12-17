@@ -12,93 +12,61 @@ import XCTest
 class MainPresenterTests: XCTestCase {
 
     var view = MainMock()
-    var presenter: MainListPresenter!
+    var presenter: MainListDelegate!
     
     override func setUp() {
         presenter = MainListPresenter(with: view, useCase: ProvidersUseCase())
     }
 
 
-    func testFilterParams() {
-
-        // When
-        presenter.updateProvider(.github)
-        presenter.updateFilterValues("", location: "")
-        
-        // Then
-        XCTAssertTrue(presenter.jobsProviders! == .github)
-        XCTAssertTrue(presenter.position?.isEmpty == true)
-        XCTAssertTrue(presenter.location?.isEmpty == true)
-
-        // When
-        presenter.updateFilterValues("ios developer", location: "new york")
-        
-        // Then
-        XCTAssertTrue(presenter.position == "ios+developer")
-        XCTAssertTrue(presenter.location == "new+york")
-        
-        // When
-        presenter.updateFilterValues("ios developer 543%%%%%%*", location: "newyork")
-        
-        // Then
-        XCTAssertTrue(presenter.position == "ios+developer+543%%%%%%*")
-        XCTAssertTrue(presenter.location == "newyork")
-        
-        // When
-        presenter.updateProvider(.searchGOV)
-        presenter.updateFilterValues("", location: "")
-        
-        // Then
-        XCTAssertTrue(presenter.jobsProviders! == .searchGOV)
-        XCTAssertTrue(presenter.position?.isEmpty == true)
-        XCTAssertTrue(presenter.location?.isEmpty == true)
-  
-    }
+//    var searchActivated: Bool { get }
+//    var positionSearchActivated: Bool { get }
+//    var mainListCount: Int { get }
+//    var jobProviderCount: Int { get }
+//    var selectedProviderTitle: String { get }
     
-    func testSearch() {
+//    func getProviderItem(at row: Int) -> String
+//    func getJobItem(at row: Int) -> Job
+//    func getSearchItem(at row: Int) -> String
+//    func getJobLink(at row: Int) -> URL?
+//    func getAvailableJobs()
+//    func updateProvider()
+//    func updateFilterValues(_ position: String?, location: String?)
+//    func searchPosition(by text: String?)
+//    func searchlocation(by text: String?)
+//    func searchClear()
+//    func updateSelectedProvider(at row: Int)
+//    func openSFSafari(at row: Int)
+    
+    func testGetProviderItemSuccess() {
         
         // Given
-        let expectedSearchResult = ["iOS Developer"]
-
+        var providerIndexRow = 0
         // When
-        presenter.searchPosition(by: "ios")
-        
+        var item = presenter.getProviderItem(at: providerIndexRow)
         // Then
-        XCTAssertTrue(presenter.isSearchActive)
-        XCTAssertTrue(presenter.isPositionSearchActive)
-        XCTAssertEqual(expectedSearchResult, presenter.searchList)
-
+        XCTAssertTrue(item == "Github")
         // Given
-        let expectedlocationResult = ["New York"]
-        
+        providerIndexRow = 1
         // When
-        presenter.searchlocation(by: "new")
-        
+        item = presenter.getProviderItem(at: providerIndexRow)
         // Then
-        XCTAssertTrue(presenter.isSearchActive)
-        XCTAssertFalse(presenter.isPositionSearchActive)
-        XCTAssertEqual(expectedlocationResult, presenter.searchList)
-
-        // When
-        presenter.searchClear()
-        
-        // Then
-        XCTAssertFalse(presenter.isSearchActive)
-        XCTAssertTrue(presenter.searchList.isEmpty)
-        
+        XCTAssertTrue(item == "Search.gov")
     }
 
-    
-    func testNumberOfRowsInSection()  {
- 
+    func testGetProviderItemFailure() {
+        // Given
+        var providerIndexRow = 0
         // When
-        presenter.searchPosition(by: "ios")
-
+        var item = presenter.getProviderItem(at: providerIndexRow)
         // Then
-        XCTAssertTrue(presenter.getNumberOfRowsInSection() > 0)
-        XCTAssertFalse(presenter.searchList.isEmpty)
-
-        
+        XCTAssertFalse(item == "Search.gov")
+        // Given
+        providerIndexRow = 1
+        // When
+        item = presenter.getProviderItem(at: providerIndexRow)
+        // Then
+        XCTAssertFalse(item == "Github")
     }
     
 }

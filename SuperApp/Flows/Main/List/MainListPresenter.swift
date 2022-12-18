@@ -17,7 +17,7 @@ final class MainListPresenter {
     private var position: String?
     private var location: String?
     private var selectedProvider: JobsProvider!
-    private var view: MainListRepresentation!
+    private weak var view: MainListRepresentation!
     private var useCase: ProvidersUseCase!
 
     // MARK: - Init / Deinit

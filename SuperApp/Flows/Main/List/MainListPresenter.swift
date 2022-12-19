@@ -80,9 +80,8 @@ extension MainListPresenter: MainListDelegate {
     var mainListCount: Int {
         if isSearchActive, !searchList.isEmpty {
             return searchList.count
-        } else {
-            return jobsList.count
         }
+        return jobsList.count
     }
     func getAvailableJobs() {
 
@@ -120,9 +119,6 @@ extension MainListPresenter: MainListDelegate {
         isSearchActive = false
         searchList.removeAll()
         view.updateList()
-    }
-    func updateSelectedProvider(_ provider: JobsProvider) {
-        selectedProvider = provider
     }
     
     func openSFSafari(at row: Int) {

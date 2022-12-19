@@ -14,9 +14,17 @@ enum JobsProvider: String, CaseIterable {
 
 typealias jobsCompletion = ([Job]?, Error?)->Void
 
-final class ProvidersUseCase {
+protocol ProvidersUseCase: AnyObject {
+    var allLocations: [String] { get }
+    var allPostions: [String] { get }
+    func getJobs(from proviver: JobsProvider,
+                 position: String,
+                 location: String,
+                 completion: @escaping jobsCompletion)
+}
+
+final class APIProvidersUseCase: ProvidersUseCase {
     
-        
     // MARK: Public
     var allLocations: [String] {
         getListFromPlist(fileName: "Locations")

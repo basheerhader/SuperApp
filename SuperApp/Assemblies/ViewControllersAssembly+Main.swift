@@ -13,7 +13,8 @@ extension ViewControllersAssembly {
     static func makeMainViewController() -> UIViewController {
 //        return makeMainViewControllerSwiftUI()
         let viewController: MainListViewController = main.makeViewController()
-        let presenter = MainListPresenter(with: viewController, useCase: ProvidersUseCase())
+        let useCase: ProvidersUseCase = APIProvidersUseCase()
+        let presenter = MainListPresenter(with: viewController, useCase: useCase)
         viewController.presenter = presenter
         return viewController.navigation
     }

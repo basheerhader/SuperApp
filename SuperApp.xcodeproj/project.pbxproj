@@ -26,8 +26,8 @@
 		CE9105C9294CA7C4008D3137 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105C8294CA7C4008D3137 /* Protocols.swift */; };
 		CE9105CD294CA91D008D3137 /* KeyboardAccessoryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105CB294CA91D008D3137 /* KeyboardAccessoryInputView.swift */; };
 		CE9105CE294CA91D008D3137 /* KeyboardAccessoryInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9105CC294CA91D008D3137 /* KeyboardAccessoryInputView.xib */; };
-		CE9105D2294CB440008D3137 /* JobSearchMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D1294CB440008D3137 /* JobSearchMock.swift */; };
-		CE9105D4294CB460008D3137 /* JobSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D3294CB45F008D3137 /* JobSearchPresenterTests.swift */; };
+		CE9105D2294CB440008D3137 /* MainListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D1294CB440008D3137 /* MainListMock.swift */; };
+		CE9105D4294CB460008D3137 /* MainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D3294CB45F008D3137 /* MainPresenterTests.swift */; };
 		CE9105D6294CB59C008D3137 /* SuperAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D5294CB59C008D3137 /* SuperAppTests.swift */; };
 		CE9105D8294D00B2008D3137 /* MainListProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D7294D00B2008D3137 /* MainListProtocal.swift */; };
 		CE9105DA294D02B1008D3137 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105D9294D02B1008D3137 /* Constant.swift */; };
@@ -70,8 +70,8 @@
 		CE9105C8294CA7C4008D3137 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		CE9105CB294CA91D008D3137 /* KeyboardAccessoryInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryInputView.swift; sourceTree = "<group>"; };
 		CE9105CC294CA91D008D3137 /* KeyboardAccessoryInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardAccessoryInputView.xib; sourceTree = "<group>"; };
-		CE9105D1294CB440008D3137 /* JobSearchMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchMock.swift; sourceTree = "<group>"; };
-		CE9105D3294CB45F008D3137 /* JobSearchPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSearchPresenterTests.swift; sourceTree = "<group>"; };
+		CE9105D1294CB440008D3137 /* MainListMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListMock.swift; sourceTree = "<group>"; };
+		CE9105D3294CB45F008D3137 /* MainPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenterTests.swift; sourceTree = "<group>"; };
 		CE9105D5294CB59C008D3137 /* SuperAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperAppTests.swift; sourceTree = "<group>"; };
 		CE9105D7294D00B2008D3137 /* MainListProtocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListProtocal.swift; sourceTree = "<group>"; };
 		CE9105D9294D02B1008D3137 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 		CE9105CF294CB410008D3137 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				CE9105D1294CB440008D3137 /* JobSearchMock.swift */,
-				CE9105D3294CB45F008D3137 /* JobSearchPresenterTests.swift */,
+				CE9105D1294CB440008D3137 /* MainListMock.swift */,
+				CE9105D3294CB45F008D3137 /* MainPresenterTests.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -459,8 +459,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9105D4294CB460008D3137 /* JobSearchPresenterTests.swift in Sources */,
-				CE9105D2294CB440008D3137 /* JobSearchMock.swift in Sources */,
+				CE9105D4294CB460008D3137 /* MainPresenterTests.swift in Sources */,
+				CE9105D2294CB440008D3137 /* MainListMock.swift in Sources */,
 				CE9105D6294CB59C008D3137 /* SuperAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

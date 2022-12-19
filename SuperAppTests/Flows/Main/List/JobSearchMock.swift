@@ -46,3 +46,27 @@ extension MainMock: MainListRepresentation {
     }
     
 }
+
+
+class ProvidersUseCaseMock: ProvidersUseCase {
+
+    
+
+    override func getJobs(from proviver: JobsProvider,
+                 position: String,
+                 location: String,
+                 completion: @escaping jobsCompletion) {
+        
+        
+        let jobsList: [Job] = [
+            Job(id: "1", companyLogo: "logo", jobTitle: "iOS Developer", jobLink: "google.com", companyName: "Apple", location: "USA", postdate: nil),
+            Job(id: "2", companyLogo: "logo2", jobTitle: "iOS Developer2", jobLink: "google2.com", companyName: "Apple2", location: "USA2", postdate: nil)
+        ]
+        
+        completion(jobsList, nil)
+
+        
+    }
+}
+
+

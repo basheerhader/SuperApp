@@ -12,10 +12,12 @@ import XCTest
 class MainPresenterTests: XCTestCase {
 
     var view = MainMock()
+    var useCase = ProvidersUseCaseMock()
+
     var presenter: MainListDelegate!
     
     override func setUp() {
-        presenter = MainListPresenter(with: view, useCase: ProvidersUseCase())
+        presenter = MainListPresenter(with: view, useCase: useCase)
     }
 
 
@@ -37,6 +39,15 @@ class MainPresenterTests: XCTestCase {
 //    func searchClear()
 //    func updateSelectedProvider(at row: Int)
 //    func openSFSafari(at row: Int)
+    
+    
+    func testGetAvailableJobs() {
+
+        presenter.getAvailableJobs()
+        
+        
+        
+    }
     
     func testGetProviderItemSuccess() {
         
@@ -69,4 +80,34 @@ class MainPresenterTests: XCTestCase {
         XCTAssertFalse(item == "Github")
     }
     
+    func testGetJobItemSuccess() {
+        
+        // Given
+//        var jobItemIndexRow = 0
+//        // When
+//        var item = presenter.getJobItem(at: jobItemIndexRow)
+//        // Then
+//        XCTAssertTrue(item.id == "1")
+//        // Given
+//        providerIndexRow = 1
+//        // When
+//        item = presenter.getProviderItem(at: providerIndexRow)
+//        // Then
+//        XCTAssertTrue(item == "Search.gov")
+    }
+
+    func testGetJobItemFailure() {
+        // Given
+        var providerIndexRow = 0
+        // When
+        var item = presenter.getProviderItem(at: providerIndexRow)
+        // Then
+        XCTAssertFalse(item == "Search.gov")
+        // Given
+        providerIndexRow = 1
+        // When
+        item = presenter.getProviderItem(at: providerIndexRow)
+        // Then
+        XCTAssertFalse(item == "Github")
+    }
 }

@@ -90,18 +90,10 @@ protocol ViewDisplayable: AnyObject {
 }
 
 extension ViewDisplayable where Self: UIViewController {
-    
-    func showLoading() {
-    }
-    
-    func hideLoading() {
-    }
-    
+    func showLoading() { }
+    func hideLoading() { }
     func present(to viewCoreoller: UIViewController) {
         present(viewCoreoller, animated: true)
     }
-    
-    func showAlert(with message: String) {
-   
-    }
+    func showAlert(with message: String) { }
 }

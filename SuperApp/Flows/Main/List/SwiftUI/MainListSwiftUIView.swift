@@ -10,9 +10,14 @@ import SwiftUI
 struct MainListSwiftUIView: View {
     
     var presenter: MainListDelegate!
+    @State var selectedItem = ""
     
     var body: some View {
-        Text(presenter.selectedProviderTitle)
+            Picker("Pick a job provider", selection: $selectedItem) {
+                ForEach(0 ..< presenter.jobProviderCount, id:\.self) { item in
+                    Text(presenter.getProviderItem(at: item))
+            }
+        }
     }
 }
 
@@ -22,8 +27,7 @@ struct MainListSwiftUIView_Previews: PreviewProvider {
     }
 }
 
-
-// MARK: - Main List Representation
+//// MARK: - Main List Representation
 //extension MainListSwiftUIView: MainListRepresentation {
 //    func updateList() {
 //
@@ -31,17 +35,12 @@ struct MainListSwiftUIView_Previews: PreviewProvider {
 //}
 
 extension ViewDisplayable where Self: View {
-    
     func showLoading() { }
-    
     func hideLoading() { }
-    
     func present(to viewCoreoller: UIViewController) { }
-    
     func showAlert(with message: String) { }
 }
 
 extension MainListRouter where Self: View {
-    
     func openSFSafari(with link: URL) { }
 }

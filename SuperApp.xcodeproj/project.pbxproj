@@ -35,6 +35,7 @@
 		CE9105DF294D0B75008D3137 /* Positions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE9105DD294D0B75008D3137 /* Positions.plist */; };
 		CE9105E0294D0B75008D3137 /* Locations.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE9105DE294D0B75008D3137 /* Locations.plist */; };
 		CE9105E4294E3AE9008D3137 /* MainListSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105E3294E3AE9008D3137 /* MainListSwiftUIView.swift */; };
+		CE9105E72951ADC4008D3137 /* MainListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105E62951ADC4008D3137 /* MainListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		CE9105DD294D0B75008D3137 /* Positions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Positions.plist; sourceTree = "<group>"; };
 		CE9105DE294D0B75008D3137 /* Locations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Locations.plist; sourceTree = "<group>"; };
 		CE9105E3294E3AE9008D3137 /* MainListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListSwiftUIView.swift; sourceTree = "<group>"; };
+		CE9105E62951ADC4008D3137 /* MainListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				CE9105BA294CA1E6008D3137 /* MainListViewController.swift */,
 				CE9105B9294CA1E5008D3137 /* MainListPresenter.swift */,
 				CE9105D7294D00B2008D3137 /* MainListProtocal.swift */,
+				CE9105E62951ADC4008D3137 /* MainListRouter.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				CE9105BE294CA1E6008D3137 /* MainListPresenter.swift in Sources */,
 				CE9105C9294CA7C4008D3137 /* Protocols.swift in Sources */,
 				CE9105DC294D07A9008D3137 /* NetworkAdapter.swift in Sources */,
+				CE9105E72951ADC4008D3137 /* MainListRouter.swift in Sources */,
 				CE9105422949BF3B008D3137 /* SceneDelegate.swift in Sources */,
 				CE91055E2949C044008D3137 /* ViewControllersAssembly+Main.swift in Sources */,
 				CE9105CD294CA91D008D3137 /* KeyboardAccessoryInputView.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import SafariServices
 
 extension ViewControllersAssembly {
   
@@ -19,11 +20,16 @@ extension ViewControllersAssembly {
         return viewController.navigation
     }
     
-    
+    static func makeSFSafariViewController(with link: URL) -> SFSafariViewController {
+        let safariController = SFSafariViewController(url: link)
+        safariController.modalPresentationStyle = .overCurrentContext
+        return safariController
+    }
+
 //    static func makeMainViewControllerSwiftUI() -> UIViewController {
-//
 //        var mainListSwiftUIView = MainListSwiftUIView()
-//        let presenter = MainListPresenter(with: mainListSwiftUIView, useCase: ProvidersUseCase())
+//        let useCase: ProvidersUseCase = APIProvidersUseCase()
+//        let presenter = MainListPresenter(with: mainListSwiftUIView, useCase: useCase)
 //        mainListSwiftUIView.presenter = presenter
 //        return UIHostingController(rootView: mainListSwiftUIView)
 //    }

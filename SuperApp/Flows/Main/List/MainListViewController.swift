@@ -33,10 +33,15 @@ final class MainListViewController: UIViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
         
+        setupKeyboardAccessory()
+    }
+    
+    private func setupKeyboardAccessory() {
         let keyboardAccessoryInputView: KeyboardAccessoryInputView = KeyboardAccessoryInputView.load()
         keyboardAccessoryInputView.onClickOnDoneButton = updateProvider
         providerTextField.inputAccessoryView = keyboardAccessoryInputView
     }
+    
     private func updateProvider() {
         providerTextField.resignFirstResponder()
         presenter.updateProvider()

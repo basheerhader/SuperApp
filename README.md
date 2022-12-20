@@ -1,3 +1,24 @@
+# SuperApp for Swift
+![Platform](https://img.shields.io/cocoapods/p/Typist.svg?style=flat)
+![version](https://img.shields.io/badge/version-1.0-brightgreen.svg)
+![Swift Version](https://img.shields.io/badge/swift-5-orange.svg?style=flat)
+
+SuperApp codes - that thing that we need to create a best iOS application with highest code quality and performance
+
+
+### Features:
+
+- [x] Based on iOS VIPER Architecture
+- [x] Based on Protocol-oriented Programming
+- [x] Enterprise Wide and Specific Business architecture are separated
+- [x] Business logics are separated from interface
+- [x] UnitTesting coverage 100% for Business logics
+- [x] Can Support SwiftUI without touching Business logic
+- [x] Can Support Server Driven UI without touching Business logic
+- [x] Files Strucuer are very clear and covered all VIPER layers 
+- [x] Easy to add more Wide Business layers without touching Specific Business
+- [x] Easy to create separate Modules(SDKs)
+
 ### High Level Layers
 
 #### VIPER Concepts

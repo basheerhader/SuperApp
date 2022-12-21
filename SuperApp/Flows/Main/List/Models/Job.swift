@@ -16,21 +16,4 @@ struct Job: Codable {
     let companyName: String?
     let location: String?
     let postdate: Date?
-    
-//    public init(id: String?,
-//                companyLogo: String?,
-//                jobTitle: String?,
-//                jobLink: String?,
-//                companyName: String?,
-//                location: String?,
-//                postdate: Date?)
-//    {
-//        self.id = id
-//        self.companyLogo = companyLogo
-//        self.jobTitle = jobTitle
-//        self.jobLink = jobLink
-//        self.companyName = companyName
-//        self.location = location
-//        self.postdate = postdate
-//    }
 }

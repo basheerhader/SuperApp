@@ -38,7 +38,9 @@ final class MainListViewController: UIViewController {
     
     private func setupKeyboardAccessory() {
         let keyboardAccessoryInputView: KeyboardAccessoryInputView = KeyboardAccessoryInputView.load()
-        keyboardAccessoryInputView.onClickOnDoneButton = updateProvider
+        keyboardAccessoryInputView.onClickOnDoneButton =  { [weak self] in
+            self?.updateProvider()
+        }
         providerTextField.inputAccessoryView = keyboardAccessoryInputView
     }
     

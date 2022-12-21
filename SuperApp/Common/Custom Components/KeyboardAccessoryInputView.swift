@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class KeyboardAccessoryInputView: UIView, NibLoadable {
+final class KeyboardAccessoryInputView: UIToolbar, NibLoadable {
 
-    @IBOutlet weak var leftBarButton: UIButton!
+    @IBOutlet private weak var leftBarButton: UIButton!
     
     // MARK: Properties
     
-    var onClickOnDoneButton: (()->())?
+    var onClickOnDoneButton: (()->Void)?
     
     // MARK: Actions
 

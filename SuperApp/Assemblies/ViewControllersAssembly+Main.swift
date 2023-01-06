@@ -17,7 +17,7 @@ extension ViewControllersAssembly {
         let useCase: ProvidersUseCase = APIProvidersUseCase()
         let presenter = MainListPresenter(with: viewController, useCase: useCase)
         viewController.presenter = presenter
-        return viewController.navigation
+        return viewController
     }
     
     static func makeSFSafariViewController(with link: URL) -> SFSafariViewController {

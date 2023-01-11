@@ -11,13 +11,13 @@ SuperApp codes - that thing that we need to create a best iOS application with h
 - [x] Based on iOS VIPER Architecture
 - [x] Based on Protocol-oriented Programming
 - [x] Enterprise Wide and Specific Business architecture are separated
-- [x] Business logics are separated from interface
-- [x] UnitTesting coverage 100% for Business logics
+- [x] Business logics and UI logics are separated
+- [x] UnitTesting coverage 100% for Business logics(Presenter)
 - [x] Can Support SwiftUI without touching Business logic
 - [x] Can Support Server Driven UI without touching Business logic
-- [x] Files Strucuer are very clear and covered all VIPER layers 
+- [x] Files Structure are very clear and covered all VIPER layers 
 - [x] Easy to add more Wide Business layers without touching Specific Business
-- [x] Easy to create separate Modules(SDKs)
+- [x] Easy to create separated Modules(SDKs)
 
 ### High Level Layers
 

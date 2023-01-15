@@ -37,6 +37,10 @@
 		CE9105DC294D07A9008D3137 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105DB294D07A9008D3137 /* NetworkAdapter.swift */; };
 		CE9105E4294E3AE9008D3137 /* MainListSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105E3294E3AE9008D3137 /* MainListSwiftUIView.swift */; };
 		CE9105E72951ADC4008D3137 /* MainListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9105E62951ADC4008D3137 /* MainListRouter.swift */; };
+		CECBFA5429743551006AF55E /* ProvidersNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBFA5329743551006AF55E /* ProvidersNetwork.swift */; };
+		CECBFA56297438A7006AF55E /* ProvidersUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBFA55297438A7006AF55E /* ProvidersUseCaseTests.swift */; };
+		CECBFA59297438D4006AF55E /* ProvidersUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBFA58297438D4006AF55E /* ProvidersUseCaseMock.swift */; };
+		CECBFA5B29743A8F006AF55E /* ProvidersDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBFA5A29743A8F006AF55E /* ProvidersDataBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +100,10 @@
 		CE9105DB294D07A9008D3137 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		CE9105E3294E3AE9008D3137 /* MainListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListSwiftUIView.swift; sourceTree = "<group>"; };
 		CE9105E62951ADC4008D3137 /* MainListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListRouter.swift; sourceTree = "<group>"; };
+		CECBFA5329743551006AF55E /* ProvidersNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersNetwork.swift; sourceTree = "<group>"; };
+		CECBFA55297438A7006AF55E /* ProvidersUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersUseCaseTests.swift; sourceTree = "<group>"; };
+		CECBFA58297438D4006AF55E /* ProvidersUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersUseCaseMock.swift; sourceTree = "<group>"; };
+		CECBFA5A29743A8F006AF55E /* ProvidersDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersDataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +169,7 @@
 				CE91055C2949C044008D3137 /* Flows */,
 				CE9105552949C044008D3137 /* Common */,
 				CE9105542949C044008D3137 /* Network */,
-				CE910598294B1096008D3137 /* Interactor */,
+				CE910598294B1096008D3137 /* UseCase */,
 				CE910599294B10B5008D3137 /* Entity */,
 				CE26A1E1295C54FA00FECEC8 /* Resources */,
 				CE9105572949C044008D3137 /* Supporting Files */,
@@ -246,12 +254,12 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		CE910598294B1096008D3137 /* Interactor */ = {
+		CE910598294B1096008D3137 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				CE9105C2294CA314008D3137 /* Main */,
+				CE9105C2294CA314008D3137 /* Providers */,
 			);
-			path = Interactor;
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		CE910599294B10B5008D3137 /* Entity */ = {
@@ -282,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9105D5294CB59C008D3137 /* SuperAppTests.swift */,
+				CECBFA57297438AE006AF55E /* UseCases */,
 				CE9105AA294B1145008D3137 /* Main */,
 			);
 			path = Flows;
@@ -312,12 +321,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CE9105C2294CA314008D3137 /* Main */ = {
+		CE9105C2294CA314008D3137 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
 				CE9105C0294CA300008D3137 /* ProvidersUseCase.swift */,
+				CECBFA5329743551006AF55E /* ProvidersNetwork.swift */,
+				CECBFA5A29743A8F006AF55E /* ProvidersDataBase.swift */,
 			);
-			path = Main;
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		CE9105C3294CA325008D3137 /* Providers */ = {
@@ -341,8 +352,8 @@
 		CE9105CF294CB410008D3137 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				CE9105D1294CB440008D3137 /* MainListMock.swift */,
 				CE9105D3294CB45F008D3137 /* MainPresenterTests.swift */,
+				CE9105D1294CB440008D3137 /* MainListMock.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -353,6 +364,15 @@
 				CE9105E3294E3AE9008D3137 /* MainListSwiftUIView.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		CECBFA57297438AE006AF55E /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				CECBFA55297438A7006AF55E /* ProvidersUseCaseTests.swift */,
+				CECBFA58297438D4006AF55E /* ProvidersUseCaseMock.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,11 +501,13 @@
 				CE9105DC294D07A9008D3137 /* NetworkAdapter.swift in Sources */,
 				CE9105E72951ADC4008D3137 /* MainListRouter.swift in Sources */,
 				CE9105422949BF3B008D3137 /* SceneDelegate.swift in Sources */,
+				CECBFA5429743551006AF55E /* ProvidersNetwork.swift in Sources */,
 				CE26A1ED2961A48000FECEC8 /* HomeViewController.swift in Sources */,
 				CE91055E2949C044008D3137 /* ViewControllersAssembly+Main.swift in Sources */,
 				CE9105CD294CA91D008D3137 /* KeyboardAccessoryInputView.swift in Sources */,
 				CE91055D2949C044008D3137 /* Extension.swift in Sources */,
 				CE9105E4294E3AE9008D3137 /* MainListSwiftUIView.swift in Sources */,
+				CECBFA5B29743A8F006AF55E /* ProvidersDataBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,9 +515,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECBFA56297438A7006AF55E /* ProvidersUseCaseTests.swift in Sources */,
 				CE9105D4294CB460008D3137 /* MainPresenterTests.swift in Sources */,
 				CE9105D2294CB440008D3137 /* MainListMock.swift in Sources */,
 				CE9105D6294CB59C008D3137 /* SuperAppTests.swift in Sources */,
+				CECBFA59297438D4006AF55E /* ProvidersUseCaseMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,85 +1,40 @@
 //
-//  ProvidersUseCase.swift
+//  ProvidersNetwork.swift
 //  SuperApp
 //
-//  Created by Basheer AlHader on 14/12/2022.
+//  Created by Basheer AlHader on 15/01/2023.
 //
 
 import Foundation
 
-enum JobsProvider: String, CaseIterable {
-    case github = "Github"
-    case searchGOV = "Search.gov"
+protocol ProvidersNetwork: AnyObject {
+    func request(proviver: JobsProvider, position: String, location: String, completion: @escaping (Data?, Error?)->Void)
+    func mapJobProviderResult(_ proviver: JobsProvider, data: Data, completion: @escaping jobsCompletion)
 }
 
-typealias jobsCompletion = ([Job]?, Error?)->Void
-
-protocol ProvidersUseCase: AnyObject {
-    var allLocations: [String] { get }
-    var allPostions: [String] { get }
-    func getJobs(from proviver: JobsProvider,
-                 position: String,
-                 location: String,
-                 completion: @escaping jobsCompletion)
-}
-
-final class APIProvidersUseCase: ProvidersUseCase {
+final class APIProvidersNetwork: ProvidersNetwork {
     
-    // MARK: Public
-    var allLocations: [String] {
-        getListFromPlist(fileName: "Locations")
-    }
-    
-    var allPostions: [String] {
-        getListFromPlist(fileName: "Positions")
-    }
-
-    func getJobs(from proviver: JobsProvider,
-                 position: String,
-                 location: String,
-                 completion: @escaping jobsCompletion) {
+    func request(proviver: JobsProvider, position: String, location: String, completion: @escaping (Data?, Error?)->Void) {
         
-        var providerLink: String!
+        var link: String!
         
         switch proviver {
         case .github:
-            providerLink = "https://jobs.github.com/positions.json?description=\(position)&location=\(location)"
+            link = "https://jobs.github.com/positions.json?description=\(position)&location=\(location)"
         case .searchGOV:
-            providerLink = "https://jobs.search.gov/jobs/search.json?query=\(position)+jobs+in+\(location)"
+            link = "https://jobs.search.gov/jobs/search.json?query=\(position)+jobs+in+\(location)"
         }
         
-        callJobProvider(proviver, link: providerLink, completion: completion)
-    }
-    
-    // MARK: Private
-    private func getListFromPlist(fileName: String) -> [String] {
-
-        if let path = Bundle.main.path(forResource: fileName, ofType: ".plist"),
-            let locationsList = NSArray(contentsOfFile: path) as? [String] {
-            return locationsList
-        }
-        return []
-    }
-
-    private func callJobProvider(_ proviver: JobsProvider, link: String, completion: @escaping jobsCompletion) {
-
         guard let url = URL(string: link) else {
             return
         }
         
-        NetworkAdapter.request(url: url) { [weak self] date, error in
-            guard let self = self else { return }
-            if let date = date {
-                self.mapJobProviderResult(proviver, data: date, completion: completion)
-                
-            } else if let error = error {
-                completion(nil, error)
-            }
+        NetworkAdapter.request(url: url) { date, error in
+            completion(date, error)
         }
-       
     }
     
-    private func mapJobProviderResult(_ proviver: JobsProvider, data: Data, completion: @escaping jobsCompletion) {
+    func mapJobProviderResult(_ proviver: JobsProvider, data: Data, completion: @escaping jobsCompletion) {
         
         switch proviver {
         case .github:
@@ -126,6 +81,5 @@ final class APIProvidersUseCase: ProvidersUseCase {
             completion(nil, error)
         }
     }
-    
 
 }

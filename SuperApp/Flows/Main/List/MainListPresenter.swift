@@ -17,11 +17,11 @@ final class MainListPresenter {
     private var position: String?
     private var location: String?
     private var selectedProvider: JobsProvider!
-    private weak var view: MainListRepresentation!
+    private weak var view: MainListPresentation!
     private var useCase: ProvidersUseCase!
 
     // MARK: - Init / Deinit
-    init(with view: MainListRepresentation, useCase: ProvidersUseCase) {
+    init(with view: MainListPresentation, useCase: ProvidersUseCase) {
         self.view = view
         self.useCase = useCase
 
@@ -48,7 +48,7 @@ final class MainListPresenter {
     }
 }
 
-extension MainListPresenter: MainListDelegate {
+extension MainListPresenter: MainListRecipient {
     
     var positionSearchActivated: Bool {
         isPositionSearchActive

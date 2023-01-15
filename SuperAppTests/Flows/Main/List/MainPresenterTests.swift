@@ -15,7 +15,7 @@ class MainPresenterTests: XCTestCase {
     var useCaseSuccess = ProvidersUseCaseMockSuccess()
     var useCaseFailure = ProvidersUseCaseMockFailure()
     var useCaseJobsEmpty = ProvidersUseCaseMockJobsEmpty()
-    var presenter: MainListDelegate!
+    var presenter: MainListRecipient!
     
     override func setUp() {
         presenter = MainListPresenter(with: view, useCase: useCaseSuccess)

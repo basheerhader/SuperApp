@@ -49,6 +49,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CECBFA522971A00F006AF55E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		CE26A1E2295C54FA00FECEC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE26A1E4295C54FA00FECEC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -352,12 +365,15 @@
 				CE9105382949BF3B008D3137 /* Sources */,
 				CE9105392949BF3B008D3137 /* Frameworks */,
 				CE91053A2949BF3B008D3137 /* Resources */,
+				CECBFA522971A00F006AF55E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SuperApp;
+			packageProductDependencies = (
+			);
 			productName = SuperApp;
 			productReference = CE91053C2949BF3B008D3137 /* SuperApp.app */;
 			productType = "com.apple.product-type.application";
@@ -409,6 +425,8 @@
 				Base,
 			);
 			mainGroup = CE9105332949BF3B008D3137;
+			packageReferences = (
+			);
 			productRefGroup = CE91053D2949BF3B008D3137 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

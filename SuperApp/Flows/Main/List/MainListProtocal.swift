@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol MainListRepresentation: ViewDisplayable, MainListRouter {
+protocol MainListPresentation: ViewDisplayable, MainListRouter {
     func updateList()
 }
 
-protocol MainListDelegate: AnyObject {
+protocol MainListRecipient: AnyObject {
     var searchActivated: Bool { get }
     var positionSearchActivated: Bool { get }
     var mainListCount: Int { get }

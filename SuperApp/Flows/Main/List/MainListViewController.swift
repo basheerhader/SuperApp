@@ -17,7 +17,7 @@ final class MainListViewController: UIViewController {
 
     // MARK: Parameters
     private lazy var pickerView = UIPickerView()
-    var presenter: MainListDelegate!
+    var presenter: MainListRecipient!
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -114,7 +114,7 @@ extension MainListViewController: UIPickerViewDelegate, UIPickerViewDataSource  
 }
 
 // MARK: - Main List Representation
-extension MainListViewController: MainListRepresentation {
+extension MainListViewController: MainListPresentation {
     func updateList() {
         tableView.reloadData()
     }

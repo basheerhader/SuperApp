@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainListSwiftUIView: View {
     
-    var presenter: MainListDelegate!
+    var presenter: MainListRecipient!
     @State var selectedItem = ""
     
     var body: some View {

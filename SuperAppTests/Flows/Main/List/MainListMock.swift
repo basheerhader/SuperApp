@@ -19,7 +19,7 @@ class MainListMock {
     var openSFSafaritCalled = false
 }
 
-extension MainListMock: MainListRepresentation {
+extension MainListMock: MainListPresentation {
     
     func openSFSafari(with link: URL) {
         openSFSafaritCalled = true
